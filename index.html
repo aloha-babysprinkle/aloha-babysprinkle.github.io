@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Aloha Baby Sprinkle</title>
+        <meta name="Aloha Baby Sprinkle" content="Aloha Baby Sprinkle">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <!-- <h1>Aloha Baby Sprinkle</h1> -->
+
+        
+        <!-- Slideshow container -->
+        <div class="slideshow_container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+            <img class="img_carousel" src="./img1_resize.JPG">
+            <div class="text">Caption Text</div>
+            </div>
+        
+            <div class="mySlides fade">
+            <img class="img_carousel" src="./img2_resize.JPG">
+            <div class="text">Caption Two</div>
+            </div>
+        
+            <div class="mySlides fade">
+            <img class="img_carousel" src="./img_carousel_resize.JPG">
+            <div class="text">Caption Three</div>
+            </div>
+   
+        </div>
+        <br>
+        
+        <!-- The dots/circles -->
+        <div style="text-align:center; display: none;">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+
+
+        <script>
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+
+            // Hide all slides
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            // Increment slide index
+            slideIndex++;
+
+            // Reset to first slide if index exceeds total slides
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+
+            // Display the current slide
+            slides[slideIndex - 1].style.display = "block";
+
+            // Update dots if applicable
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            if (dots.length > 0) {
+                dots[slideIndex - 1].className += " active";
+            }
+
+            // Set timer to call this function again
+            setTimeout(showSlides, 5000); // Change slide every 5 seconds
+            }
+            </script>
+    </body>
+</html>
