@@ -91,8 +91,7 @@
             <div class="rsvp_title">RSVP</div>
              <div class="text-center mt-4 mb-4">Fill out the form below to confirm your attendance. We hope to see you there!</div>
             <div class="form" style="align-self:center;">
-                <form method="POST" 
-                action="https://script.google.com/macros/s/AKfycbwnqxuaMUDI3oTmF0gMDNfB7p3HMIbsfjvlKSSD6aoC06h9AiM0LdZVeC2d4AKwz7ZRvA/exec">
+                <form method="POST" action="https://script.google.com/macros/s/AKfycbwnqxuaMUDI3oTmF0gMDNfB7p3HMIbsfjvlKSSD6aoC06h9AiM0LdZVeC2d4AKwz7ZRvA/exec">
                 <input name="Email" type="email" placeholder="Email" required>
                 <input name="Name" type="text" placeholder="Name" required>
                 <button type="submit">Send</button>  
@@ -131,6 +130,27 @@
                 </form>
             </div>
          </div>
+
+           <!-- MODAL ON SUCCESS -->
+        <div id="responseModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle">Thank you for attending</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <p id="modalMessage">Your RSVP has been successfully submitted and we look forward to seeing you on January 4th 2025!</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="button w-100 p-2" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
         <!-- REGISTRY -->
 
         <!-- COUNTDOWN -->
@@ -169,48 +189,50 @@
             // Set timer to call this function again
             setTimeout(showSlides, 5000); // Change slide every 5 seconds
             }
- 
-            <!-- MODAL SCRIPT ON SUCCESS -->
+            </script>
 
-        document.querySelector('form').addEventListener('submit', async function (event) {
-            event.preventDefault(); // Prevent default form submission
-        
-            const submitButton = event.target.querySelector('button[type="submit"]'); 
-            const modalTitle = document.getElementById('modalTitle');
-            const modalMessage = document.getElementById('modalMessage');
-        
-               // Disable the submit button and show a loading message
-                submitButton.disabled = true;
-                modalTitle.textContent = "Submitting";
-                modalMessage.textContent = "Please wait while we process your RSVP.";
-                $('#responseModal').modal('show');
-          
-                try {
-                // Example: Replace with your actual Google Sheets submission URL
-                const formData = new FormData(event.target); 
-                const response = await fetch('https://script.google.com/macros/s/AKfycbwnqxuaMUDI3oTmF0gMDNfB7p3HMIbsfjvlKSSD6aoC06h9AiM0LdZVeC2d4AKwz7ZRvA/exec', {
-                    method: 'POST',
-                    body: formData,
-                });
-        
-                if (response.ok) { // Check if the response status is 200-299
-                    modalTitle.textContent = "Success";
-                    modalMessage.textContent = "Your RSVP has been successfully submitted!";
-                } else {
+            <!-- MODAL SCRIPT ON SUCCESS -->
+        <!-- MODAL SCRIPT ON SUCCESS -->
+        <script>
+            document.querySelector('form').addEventListener('submit', async function (event) {
+                event.preventDefault(); // Prevent default form submission
+            
+                const submitButton = event.target.querySelector('button[type="submit"]'); 
+                const modalTitle = document.getElementById('modalTitle');
+                const modalMessage = document.getElementById('modalMessage');
+            
+                // Disable the submit button and show a loading message
+                    submitButton.disabled = true;
+                    modalTitle.textContent = "Submitting...";
+                    modalMessage.textContent = "Please wait while we process your RSVP.";
+                    $('#responseModal').modal('show');
+            
+                    try {
+                    // Example: Replace with your actual Google Sheets submission URL
+                    const formData = new FormData(event.target); 
+                    const response = await fetch('https://script.google.com/macros/s/AKfycbwnqxuaMUDI3oTmF0gMDNfB7p3HMIbsfjvlKSSD6aoC06h9AiM0LdZVeC2d4AKwz7ZRvA/exec', {
+                        method: 'POST',
+                        body: formData,
+                    });
+            
+                    if (response.ok) { // Check if the response status is 200-299
+                        modalTitle.textContent = "Success";
+                        modalMessage.textContent = "Your RSVP has been successfully submitted!";
+                    } else {
+                        modalTitle.textContent = "Error";
+                        modalMessage.textContent = "There was an error submitting your RSVP. Please try again.";
+                    }
+                } catch (error) {
                     modalTitle.textContent = "Error";
-                    modalMessage.textContent = "There was an error submitting your RSVP. Please try again.";
+                    modalMessage.textContent = "Network error occurred. Please check your connection.";
+                } finally {
+                    // Re-enable the submit button after the response
+                    submitButton.disabled = false;
                 }
-            } catch (error) {
-                modalTitle.textContent = "Error";
-                modalMessage.textContent = "Network error occurred. Please check your connection.";
-            } finally {
-                // Re-enable the submit button after the response
-                submitButton.disabled = false;
-            }
-        
-            // Display the modal
-            $('#responseModal').modal('show');
-        });
+            
+                // Display the modal
+                $('#responseModal').modal('show');
+            });
 
         </script>
     </body>
