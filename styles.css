@@ -163,7 +163,7 @@ body {
     bottom: 0px;
     left: 0;
     width: 100%;
-    height: 40%; 
+    height: 60%; 
     background: linear-gradient(to top, white, transparent);
     pointer-events: none; 
   }
@@ -287,8 +287,9 @@ body {
     height: 100vh;
     position: relative;
     text-align: center;
-    /* background-image: url(./palm_corner_green_rsvp.png);
-    background-position: right;
+    /* text-align: center;
+    background-image: url(./rsvp_bcg.png);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden; */
@@ -297,9 +298,67 @@ body {
 .rsvp_title {
     font-family: "Cormorant Infant", serif;
     font-style: normal;
-    font-size: 4rem; /* Large text size */
+    font-size: 4rem; 
     font-weight: bold;
+    color: black;
+    opacity: 0.7;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.212);
+    position: relative;
+    z-index: 1;
 }
+
+
+/***** RSVP FORM PORTRAIT ****/
+#RSVP_form {
+    /* height: 130vh;  */
+    width: 100%; 
+    text-align: left;
+    display: flex; 
+    flex-direction: column; 
+    align-items: left;
+    padding-bottom: 20px; 
+    box-sizing: border-box; 
+    position: relative; 
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease-out, transform 2s ease-out; /* Ensures smooth fade */
+}
+
+.form {
+    width: 75%;
+    text-align: left;
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #773c32;
+    margin: 40px;
+}
+
+.button {
+    background-color: #B7A696;
+    color: white;
+    border: none;
+}
+
+.button:hover {
+    background-color: #9c8671;
+}
+
+/****** SUCCESS SCREEN MODAL ON FORM SUBMIT *****/
+#modalTitle {
+    font-family: "Cormorant Infant", serif;
+    font-style: normal;
+    font-size: 4rem; 
+}
+#modalMessage {
+    text-align: center;
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 
   /********* MOBILE VIEW **********/
   @media (min-width: 768px) {
