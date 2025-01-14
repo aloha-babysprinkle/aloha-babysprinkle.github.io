@@ -169,10 +169,9 @@
             // Set timer to call this function again
             setTimeout(showSlides, 5000); // Change slide every 5 seconds
             }
-            </script>
-
+ 
             <!-- MODAL SCRIPT ON SUCCESS -->
-    <script>
+
         document.querySelector('form').addEventListener('submit', async function (event) {
             event.preventDefault(); // Prevent default form submission
         
@@ -182,7 +181,7 @@
         
                // Disable the submit button and show a loading message
                 submitButton.disabled = true;
-                modalTitle.textContent = "Submitting...";
+                modalTitle.textContent = "Submitting";
                 modalMessage.textContent = "Please wait while we process your RSVP.";
                 $('#responseModal').modal('show');
           
