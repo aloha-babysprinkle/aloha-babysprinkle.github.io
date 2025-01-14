@@ -121,8 +121,9 @@ body {
   }
 
 /********** ITS A GIRL **********/
-  .girl {
-    height: 110vh;
+.girl {
+    height: 100vh;
+    text-align: center;
     /* background-image: url(./img3_resize.JPG);
     background-position: center;
     background-repeat: no-repeat;
@@ -136,20 +137,24 @@ body {
   }
 
   .girl_title {
+    margin-top: 40%;
     font-family: "Cormorant Infant", serif;
     font-style: normal;
     font-size: 2.5rem; /* Large text size */
     font-weight: bold;
-    color: #B2AC88;
+    color: dimgray;
     text-align: center;
     margin-bottom: 10%;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
     /* transform: translate(-10%, 0%); */
   }
+
+
 
   .girl_girl {
     font-size: 5rem;
     transform: translate(130%, -40%);
-    color: #FFDDD2;
+    color: #edb8c2;
   }
 
   .girl_img {
@@ -201,6 +206,16 @@ body {
     overflow: hidden;
 }
 
+.date::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 100%;
+    height: 60%; /* Adjust the height of the gradient */
+    background: linear-gradient(to top, white, transparent);
+    pointer-events: none; /* Ensures it doesn't block clicks or interactions */
+  }
 
 .date_title {
     position: absolute;
@@ -208,7 +223,7 @@ body {
     text-align: right;
     z-index: 2;
     width: 100%;
-    color: gray;
+    color: dimgray;
 }
 .join {
     margin-top: 50%;
@@ -229,9 +244,10 @@ body {
     font-weight: bold;
     text-align: right;
     margin-right: 2%;
+    margin-top: 10%;
     margin-bottom: 10%;
     color: black;
-    opacity: 0.6;
+    opacity: 0.7;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.212);
     position: relative; /* Ensure z-index works */
     z-index: 1; /* Lower z-index */
