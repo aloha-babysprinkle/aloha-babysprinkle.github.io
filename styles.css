@@ -122,22 +122,16 @@ body {
 
 /********** ITS A GIRL **********/
 .girl {
-    height: 100vh;
+    height: 130vh;
     text-align: center;
-    /* background-image: url(./img3_resize.JPG);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-attachment: fixed;
-    background-color: #B2AC88; */
   }
 
   .white_bcg {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
   .girl_title {
-    margin-top: 40%;
+    padding-top: 40%;
     font-family: "Cormorant Infant", serif;
     font-style: normal;
     font-size: 2.5rem; /* Large text size */
@@ -158,19 +152,21 @@ body {
   }
 
   .girl_img {
-    width: 100%;
+    width: 200%;
+    margin-left: -40%;
+
   }
 
-  /* .girl_img_container::after {
+  .girl_img_container::after {
     content: '';
     position: absolute;
-    top: 0px;
+    bottom: 0px;
     left: 0;
     width: 100%;
-    height: 60%; 
-    background: linear-gradient(to bottom, white, transparent);
+    height: 40%; 
+    background: linear-gradient(to top, white, transparent);
     pointer-events: none; 
-  } */
+  }
 
 
   .girl_img_container {
@@ -212,9 +208,9 @@ body {
     bottom: -15px;
     left: 0;
     width: 100%;
-    height: 60%; /* Adjust the height of the gradient */
+    height: 60%; 
     background: linear-gradient(to top, white, transparent);
-    pointer-events: none; /* Ensures it doesn't block clicks or interactions */
+    pointer-events: none; 
   }
 
 .date_title {
@@ -285,6 +281,26 @@ body {
     font-size: 1.2rem;
     margin-right: 5%;
 }
+
+/********* RSVP **********/
+.rsvp {
+    height: 100vh;
+    position: relative;
+    text-align: center;
+    /* background-image: url(./palm_corner_green_rsvp.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden; */
+}
+
+.rsvp_title {
+    font-family: "Cormorant Infant", serif;
+    font-style: normal;
+    font-size: 4rem; /* Large text size */
+    font-weight: bold;
+}
+
   /********* MOBILE VIEW **********/
   @media (min-width: 768px) {
     .slideshow_container {
