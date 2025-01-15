@@ -514,6 +514,7 @@ body {
     padding-bottom: 20px; 
     box-sizing: border-box; 
     position: relative; 
+    overflow: hidden;
 
     /* transform: translateY(20px); */
 }
@@ -544,15 +545,13 @@ body {
   z-index: 10;
 }
 
-
-/* #clockdiv {
-    font-family: sans-serif;
-    color: black;
-    display: inline-block;
-    font-weight: 100;
-    text-align: center;
-    font-size: 1rem;
-} */
+.countdown_description {
+  position: relative;
+  z-index: 10;
+  font-family: "Quicksand", serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
 #clockdiv>div {
     padding: 10px;
@@ -589,6 +588,11 @@ body {
 .countdown_img {
   margin-top: 100px;
   width: 250px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
 }
 
   /********* MOBILE VIEW **********/
