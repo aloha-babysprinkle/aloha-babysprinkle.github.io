@@ -518,6 +518,19 @@ body {
     /* transform: translateY(20px); */
 }
 
+.stitch_img {
+  position:absolute;
+  z-index: 1;
+  width: 200px;
+  left:0;
+  top: 50%;
+}
+
+.clock_all {
+  position: relative;
+  z-index: 10;
+}
+
 .countdown_cursive {
   font-size: 3rem;
   transform: translate(15%, 460%);
@@ -532,14 +545,14 @@ body {
 }
 
 
-#clockdiv {
+/* #clockdiv {
     font-family: sans-serif;
     color: black;
     display: inline-block;
     font-weight: 100;
     text-align: center;
     font-size: 1rem;
-}
+} */
 
 #clockdiv>div {
     padding: 10px;
@@ -550,12 +563,11 @@ body {
 
 #clockdiv div>span {
     font-size: 2.5rem;
-    color: black;
-    display: inline-block;
-    font-family: "Jost", sans-serif;
+    font-family: "Quicksand", serif;
     font-optical-sizing: auto;
-    font-weight: 200;
+    font-weight: 400;
     font-style: normal;
+    color:gray;
     font-display: swap;
 }
 
@@ -570,6 +582,8 @@ body {
 .countdown_title {
     font-size: 3rem;
     align-self: center;
+    position: relative;
+    z-index: 10;
 }
 
 .countdown_img {
