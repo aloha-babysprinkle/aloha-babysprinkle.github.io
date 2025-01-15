@@ -21,6 +21,9 @@
 
 body {
     margin: 0;
+    max-width: 768px; 
+    overflow-x: hidden; 
+    margin: 0 auto; /* Center the content */
     /* background-color: #FEFAE0; */
 
 }
@@ -607,3 +610,20 @@ body {
         font-size: 1.5rem;
       }
   }
+
+
+  /* Prevent any width change for large screens (desktop mode) */
+@media screen and (min-width: 1024px) {
+  body {
+      width: 100%;
+      max-width: 768px; /* Keep it the same max-width as mobile */
+  }
+}
+
+@media screen and (orientation: landscape) {
+  body {
+    width: 100%;
+    max-width: 768px; /* Lock the width even in landscape mode */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+}
