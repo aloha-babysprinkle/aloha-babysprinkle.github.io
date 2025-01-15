@@ -193,38 +193,64 @@ body {
 
 /********** DATE *********/
 .date {
-    height: 100vh;
-    position: relative;
-    background-image: url(./palm_corner_green.png);
-    background-position: left;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden;
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Create a containing block for absolutely positioned children */
+    width: 100%; /* Full width */
+    overflow: hidden; /* Ensures content doesn't overflow the container */
+    /* display: flex; */
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
 }
 
+
+.date::before,
 .date::after {
-    content: '';
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 30%; /* Adjust the height of the gradient */
+  pointer-events: none; /* Ensure it doesn't block interactions */
+  z-index: 2; /* Place the gradients above the image */
+}
+
+/* Top-to-bottom fade */
+.date::before {
+  top: 0;
+  background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+}
+
+/* Bottom-to-top fade */
+.date::after {
+  bottom: 0;
+  background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+} 
+
+  .date img {
     position: absolute;
-    bottom: -15px;
+    top: 0;
     left: 0;
-    width: 100%;
-    height: 60%; 
-    background: linear-gradient(to top, white, transparent);
-    pointer-events: none; 
+    width: 100%; /* Make the image span the entire width */
+    height: 100%; /* Make the image span the entire height */
+    object-fit: cover; /* Ensures the image covers the container proportionally */
+    z-index: 1; /* Place the image behind other content */
+  }
+  
+  .date_title {
+    text-align: center; /* Center-align text within the container */
+    color: gray;
+    font-family: "Quicksand", serif;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.199); 
+    position: relative; /* To position text over the image */
+    z-index: 2; /* Place the text above the image */
+    display: flex;
+    flex-direction: column; /* Stack text vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    height: 100%; /* Match the container height */
   }
 
-.date_title {
-    position: absolute;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.199); 
-    text-align: right;
-    z-index: 2;
-    width: 100%;
-    color: dimgray;
-}
 .join {
-    margin-top: 50%;
-    margin-right: 5%;
-    text-align: right;
     font-family: "Quicksand", serif;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -236,55 +262,40 @@ body {
 .feb {
     font-family: "Cormorant Infant", serif;
     font-style: normal;
-    font-size: 4rem; /* Large text size */
+    font-size: 4rem;
     font-weight: bold;
-    text-align: right;
-    margin-right: 2%;
-    margin-top: 10%;
-    margin-bottom: 10%;
     color: black;
     opacity: 0.7;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.212);
-    position: relative; /* Ensure z-index works */
-    z-index: 1; /* Lower z-index */
 }
 
 .fifteenth {
     font-family: "Cormorant Infant", serif;
-    transform:translate(20%, -60%);
     font-style: normal;
-    font-size: 8rem; /* Large text size */
-    /* font-weight: bold; */
+    font-size: 8rem; 
     text-align: center;
-    margin-bottom: 10%;
-    color: white;
+    color: rgb(48, 104, 57);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    position: relative; /* Ensure z-index works */
-    z-index: 2; /* Higher z-index to appear on top of .feb */
 }
 
 .cursive {
     font-family: "Ms Madi", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 2rem;
-    position: absolute;
+    font-size: 3rem;
 }
 
 .date_time {
-    margin-top: -30%;
-    font-family: "Quicksand", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
+    font-family: "Cormorant Infant", serif;
     font-style: normal;
+    font-size: 2rem; /* Large text size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     text-transform: uppercase;
-    font-size: 1.2rem;
-    margin-right: 5%;
 }
 
 /********* RSVP **********/
 .rsvp {
-    height: 100vh;
+    height: 120vh;
     position: relative;
     text-align: center;
     /* text-align: center;
@@ -331,25 +342,27 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    color: #773c32;
+    color: darkgreen;
     margin: 40px;
 }
 
 .button {
-    background-color: #B7A696;
+    background-color: darkgreen;
     color: white;
     border: none;
+    margin-bottom: 20%;
 }
 
 .button:hover {
-    background-color: #9c8671;
+    background-color: rgb(4, 133, 4);
 }
 
 /****** SUCCESS SCREEN MODAL ON FORM SUBMIT *****/
 #modalTitle {
     font-family: "Cormorant Infant", serif;
     font-style: normal;
-    font-size: 4rem; 
+    font-size: 2rem; 
+    text-transform: uppercase;
 }
 #modalMessage {
     text-align: center;
@@ -359,6 +372,69 @@ body {
     font-style: normal;
 }
 
+/****** REGISTRY *****/
+.registry {
+    height: 100vh; /* Full viewport height */
+    position: relative; /* Create a containing block for absolutely positioned children */
+    width: 100%; 
+}
+
+/***** COUNTDOWN CLOCK PORTRAIT ****/
+#countdown {
+    height: 100vh; 
+    width: 100%; 
+    text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    padding-bottom: 20px; 
+    box-sizing: border-box; 
+    position: relative; 
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 2s ease-out, transform 2s ease-out; /* Ensures smooth fade */
+}
+
+#clockdiv {
+    font-family: sans-serif;
+    color: black;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#clockdiv>div {
+    padding: 10px;
+    border-radius: 3px;
+    display: inline-block;
+    background-color: #ffe6ec;
+}
+
+#clockdiv div>span {
+    font-size: 2.5rem;
+    color: black;
+    display: inline-block;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Style for visible text */
+.smalltext {
+    font-family: "Playfair Display SC", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap; 
+}
+
+.countdown_title {
+    margin-top: 100px;
+    font-size: 3rem;
+    align-self: center;
+}
 
   /********* MOBILE VIEW **********/
   @media (min-width: 768px) {
