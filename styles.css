@@ -518,6 +518,20 @@ body {
     /* transform: translateY(20px); */
 }
 
+.countdown_cursive {
+  font-size: 3rem;
+  transform: translate(15%, 460%);
+  color: #edb8c2;
+  position: absolute;
+  font-family: "Ms Madi", serif;
+  font-style: normal;
+  font-weight: lighter;
+  margin-top: -50px; 
+  text-align: center;
+  z-index: 10;
+}
+
+
 #clockdiv {
     font-family: sans-serif;
     color: black;
@@ -554,9 +568,13 @@ body {
 }
 
 .countdown_title {
-    margin-top: 100px;
     font-size: 3rem;
     align-self: center;
+}
+
+.countdown_img {
+  margin-top: 100px;
+  width: 250px;
 }
 
   /********* MOBILE VIEW **********/
