@@ -46,6 +46,9 @@ body {
     z-index: 2;
   }
 
+.girl_flower {
+  padding-top: 20%;
+}
 .girl_girl {
     position: absolute;
     font-family: "Ms Madi", serif;
@@ -122,7 +125,7 @@ body {
 
 /********** ITS A GIRL **********/
 .girl {
-    height: 130vh;
+    /* height: 130vh; */
     text-align: center;
   }
 
@@ -131,7 +134,7 @@ body {
   }
 
   .girl_title {
-    padding-top: 40%;
+    /* padding-top: 20%; */
     font-family: "Cormorant Infant", serif;
     font-style: normal;
     font-size: 2.5rem; /* Large text size */
@@ -152,6 +155,7 @@ body {
   }
 
   .girl_img {
+    padding-top: 20%;
     width: 200%;
     margin-left: -40%;
 
@@ -226,19 +230,51 @@ body {
   background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
 } 
 
-  .date img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%; /* Make the image span the entire width */
-    height: 100%; /* Make the image span the entire height */
-    object-fit: cover; /* Ensures the image covers the container proportionally */
-    z-index: 1; /* Place the image behind other content */
-  }
-  
+.date-container {
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  margin: 20px;
+}
+
+.top-line,
+.bottom-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.line {
+  flex: 1;
+  height: 1px;
+  background-color: black;
+}
+
+.center-text {
+  margin: 0 10px; /* Space around the centered text */
+  font-size: 1.2rem; /* Adjust size as needed */
+  font-weight: bold;
+}
+
+.main-text {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+.date_img_top {
+  position: absolute;
+}
+
+.date_img_bottom {
+  position: absolute;
+  transform: scaleY(-1);
+  bottom: 0;
+  left: 0;
+}
+
   .date_title {
     text-align: center; /* Center-align text within the container */
-    color: gray;
+    color: rgb(59, 59, 59);
     font-family: "Quicksand", serif;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.199); 
     position: relative; /* To position text over the image */
@@ -250,39 +286,40 @@ body {
     height: 100%; /* Match the container height */
   }
 
-.join {
+.quicksand_font {
     font-family: "Quicksand", serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     text-transform: uppercase;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.212);
 }
 
-.feb {
+.cormorant_font {
     font-family: "Cormorant Infant", serif;
     font-style: normal;
-    font-size: 4rem;
+    text-transform: uppercase;
+    font-size: 1.2rem;
     font-weight: bold;
     color: black;
     opacity: 0.7;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.212);
 }
 
+.cursive_font {
+  font-family: "Ms Madi", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+}
+
 .fifteenth {
     font-family: "Cormorant Infant", serif;
     font-style: normal;
-    font-size: 8rem; 
+    font-size: 4rem; 
     text-align: center;
-    color: rgb(48, 104, 57);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-}
-
-.cursive {
-    font-family: "Ms Madi", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 3rem;
+    /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); */
 }
 
 .date_time {
@@ -293,18 +330,70 @@ body {
     text-transform: uppercase;
 }
 
-/********* RSVP **********/
-.rsvp {
-    height: 120vh;
-    position: relative;
-    text-align: center;
-    /* text-align: center;
-    background-image: url(./rsvp_bcg.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow: hidden; */
+.date_description {
+  margin-left: 15%;
+  margin-right: 15%;
 }
+
+/********* RSVP **********/
+
+.text_background {
+  position: relative;
+  z-index: 2; /* Above the background image */
+  background: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+  margin: 0 auto;
+  width: 90%; /* Adjust width as needed */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.rsvp {
+  font-family: "Quicksand", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  position: relative;
+  text-align: center;
+  display: flex; /* Enable Flexbox */
+  justify-content: center; /* Horizontally center the content */
+  align-items: center; /* Vertically center the content */
+  overflow: hidden;
+}
+
+.rsvp_bcg_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Make the image span the entire width */
+  height: 100%; /* Make the image span the entire height */
+  object-fit: cover; /* Ensures the image covers the container proportionally */
+  z-index: 1; /* Place the image behind other content */
+}
+
+
+.rsvp::before,
+.rsvp::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 30%; /* Adjust the height of the gradient */
+  pointer-events: none; /* Ensure it doesn't block interactions */
+  z-index: 2; /* Place the gradients above the image */
+}
+
+/* Top-to-bottom fade */
+.rsvp::before {
+  top: 0;
+  background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+}
+
+/* Bottom-to-top fade */
+.rsvp::after {
+  bottom: 0;
+  background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+} 
+
 
 .rsvp_title {
     font-family: "Cormorant Infant", serif;
@@ -336,6 +425,7 @@ body {
 }
 
 .form {
+  text-transform: uppercase;
     width: 75%;
     text-align: left;
     font-family: "Quicksand", serif;
@@ -374,9 +464,43 @@ body {
 
 /****** REGISTRY *****/
 .registry {
-    height: 100vh; /* Full viewport height */
+    /* height: 100vh; */
+    overflow: hidden;
     position: relative; /* Create a containing block for absolutely positioned children */
     width: 100%; 
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Stack text vertically */
+}
+
+.thankyou {
+  font-size: 3rem;
+  transform: translate(20%, -450%);
+  color: #edb8c2;
+  position: absolute;
+  font-family: "Ms Madi", serif;
+  font-style: normal;
+  font-weight: lighter;
+  margin-top: -50px; 
+  text-align: center;
+  z-index: 10;
+}
+
+.registry_description {
+  text-align: center;
+  font-family: "Quicksand", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.babylist_img {
+  width: 200px;
+  margin: 5%;
 }
 
 /***** COUNTDOWN CLOCK PORTRAIT ****/
@@ -390,9 +514,8 @@ body {
     padding-bottom: 20px; 
     box-sizing: border-box; 
     position: relative; 
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 2s ease-out, transform 2s ease-out; /* Ensures smooth fade */
+
+    /* transform: translateY(20px); */
 }
 
 #clockdiv {

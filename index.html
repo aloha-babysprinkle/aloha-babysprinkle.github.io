@@ -47,26 +47,14 @@
             </div>
    
         </div>
-            <!-- DATE -->
-            <div class="date">
-                <img src="./palm_leaves_border_right.png">
-                <div class="date_title">
-                    <div>Celebrate with us</div>
-                    <div>SATURDAY</div>
-                    <div>FEBRUARY</div>
-                    <div>15th</div>
-                    <div>3:00 PM PST</div>
-                    <div>TRACYTON, WA</div>
-                </div>
-             </div>
-    
-        
+            
         <!-- ITS A GIRL -->
          <div class="girl">
             <div class="white_bcg">
+                <img class="girl_flower" src="./girl_flower.png" width="30%">
                 <div class="girl_title">WE ARE HAVING</div>
                 <div class="girl_girl">a girl</div>
-                <img class="girl_flower" src="./girl_flower.png" width="30%">
+          
             
                 <div class="girl_description">
                     We're thrilled to announce that our little girl, Elizabeth Anne, is on her way! She's expected to make her grand debut between the end of March and the first week of April!
@@ -78,13 +66,42 @@
             </div>
         </div>
 
+        <!-- DATE -->
+        <div class="date">
+            <img class="date_img_top" src="./palm_pink_top.png">
+            <img class="date_img_bottom" src="./palm_top.jpg">
+            <div class="date_title">
+                <div class="date_description">Please join us to celebrate our baby sprinkle for</div>
+                <div class="cursive_font">Elizabeth Anne</div>
+                <div class="date-container">
+                    <div class="top-line">
+                    <span class="line"></span>
+                    <span class="cormorant_font center-text">February</span>
+                    <span class="line"></span>
+                    </div>
+                    <div class="cormorant_font main-text" style="font-size: 1.3rem">Saturday <span class="fifteenth">| 15 |</span>AT 3:00 PM</div>
+                    <div class="bottom-line">
+                    <span class="line"></span>
+                    <span class="cormorant_font center-text">2025</span>
+                    <span class="line"></span>
+                    </div>
+                </div>
+                <div>TRACYTON, WA</div>
+                <div class="date_description" style="margin-top: 5%;">There will be games, food, and a diaper raffle! 
+                    Bring any size diapers to participate. We hope to 
+                    see you there.
+                </div>
+            </div>
+        </div>
 
         <!-- RSVP -->
          <div class="rsvp">
-            <img src="./green_top.png" width="100%">
+            <img class="rsvp_bcg_img" src="./palm_leaves_border_right.png">
+            <div class="text_background">
+            <!-- <img src="./green_top.png" width="100%"> -->
             <div class="rsvp_title">RSVP</div>
-            <img src="./green_bottom.png" width="100%" style="transform: scaleY(-1);">
-             <div class="text-center mt-4 mb-4">Fill out the form below to confirm your attendance. We hope to see you there!</div>
+            <!-- <img src="./green_bottom.png" width="100%" style="transform: scaleY(-1);"> -->
+             <div class="text-center mt-4 mb-4 ">Fill out the form below to confirm your attendance. We hope to see you there!</div>
             <div class="form" style="align-self:center;">
                 <form method="POST" action="https://script.google.com/macros/s/AKfycbwnqxuaMUDI3oTmF0gMDNfB7p3HMIbsfjvlKSSD6aoC06h9AiM0LdZVeC2d4AKwz7ZRvA/exec">
                 <div class="form-group">
@@ -120,6 +137,7 @@
                     <button type="submit" class="button w-100 p-2">CONFIRM YOUR RSVP</button>
                 </form>
             </div>
+        </div>
          </div>
 
            <!-- MODAL ON SUCCESS -->
@@ -141,13 +159,47 @@
             </div>
             </div>
         </div>
-
         <!-- REGISTRY -->
          <div class="registry">
-            <div>REGISTRY</div>
+            <img class="registry_titleimg" src="./green_top.png" width="100%">
+            <div class="girl_title">REGISTRY</div>
+                <div class="thankyou">Thank You</div>
+                <img src="./green_bottom.png" width="100%" style="transform: scaleY(-1);">
+            <div class="registry_description">Thank you so much for
+                 celebrating with us! We warmly welcome any items you wish to part with that you may have had with your little one(s). Click on the image below to go to our registry. 
+            </div>
+            <a href="https://my.babylist.com/genevieve-alasagas" target="_blank">
+                <img class="babylist_img" src="babylist_img.png">
+            </a>
+            <img src="IMG_4950_phine.jpg" width="130%">
          </div>
 
+
         <!-- COUNTDOWN -->
+        <div id="countdown">
+            <h1 class="countdown_title" id="windsong">Countdown till Baby Sprinkle</h1>
+            <div class="d-flex justify-content-center align-items-center">
+                <div id="clockdiv">
+                    <div>
+                        <span class="days" id="day"></span>
+                        <div class="smalltext">days</div>
+                    </div>
+                    <div>
+        
+                        <span class="hours" id="hour"></span>
+                        <div class="smalltext">hours</div>
+                    </div>
+                    <div>
+                        <span class="minutes" id="minute"></span>
+                        <div class="smalltext">minutes</div>
+                    </div>
+                    <div>
+                        <span class="seconds" id="second"></span>
+                        <div class="smalltext">seconds</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -183,7 +235,7 @@
             // Set timer to call this function again
             setTimeout(showSlides, 5000); // Change slide every 5 seconds
             }
-            </script>
+        </script>
 
             <!-- MODAL SCRIPT ON SUCCESS -->
         <!-- MODAL SCRIPT ON SUCCESS -->
@@ -228,6 +280,42 @@
                 $('#responseModal').modal('show');
             });
 
+        </script>
+        <!-- LOGIC FOR COUNTDOWN TIMER -->
+        <script>
+            // Getting formated date from date string
+                let deadline = new Date("feb 15, 2025 15:00:00").getTime();
+
+                // Calling defined function at certain interval
+                let x = setInterval(function () {
+                // Getting current date and time in required format
+                let now = new Date().getTime();
+
+                // Calculating difference
+                let t = deadline - now;
+
+                // Getting values of days,hours,minutes, seconds
+                let days = Math.floor(t / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((t % (1000 * 60)) / 1000);
+
+                // Show the output time
+                document.getElementById("day").innerHTML = days;
+                document.getElementById("hour").innerHTML = hours;
+                document.getElementById("minute").innerHTML = minutes;
+                document.getElementById("second").innerHTML = seconds;
+
+                // Show overtime output
+                if (t < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "TIME UP";
+                    document.getElementById("day").innerHTML = "0";
+                    document.getElementById("hour").innerHTML = "0";
+                    document.getElementById("minute").innerHTML = "0";
+                    document.getElementById("second").innerHTML = "0";
+                }
+                }, 1000);
         </script>
     </body>
 </html>
